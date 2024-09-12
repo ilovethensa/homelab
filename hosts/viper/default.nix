@@ -1,13 +1,6 @@
 # This is your system's configuration file.
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -55,10 +48,10 @@
   # Useful other development tools
   environment.systemPackages = with pkgs; [
     distrobox
-    dive            # look into docker image layers
-    podman-tui      # status of containers in the terminal
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
     #docker-compose # start group of containers for dev
-    podman-compose  # start group of containers for dev
+    podman-compose # start group of containers for dev
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

@@ -1,5 +1,4 @@
-{ lib, config, pkgs, ... }:
-{
+{ lib, config, pkgs, ... }: {
   # Disable nix channels. Use flakes instead.
   nix.channel.enable = lib.mkDefault false;
 
@@ -46,26 +45,26 @@
   nix.package = lib.mkDefault pkgs.nixVersions.latest;
 
   # Enable flakes
-  nix.settings.experimental-features =
-    [
-      # for container in builds support
-      "auto-allocate-uids"
-      "cgroups"
+  nix.settings.experimental-features = [
+    # for container in builds support
+    "auto-allocate-uids"
+    "cgroups"
 
-      # Enable the use of the fetchClosure built-in function in the Nix language.
-      "fetch-closure"
+    # Enable the use of the fetchClosure built-in function in the Nix language.
+    "fetch-closure"
 
-      # Allow derivation builders to call Nix, and thus build derivations recursively.
-      "recursive-nix"
+    # Allow derivation builders to call Nix, and thus build derivations recursively.
+    "recursive-nix"
 
-      # Enable the nix command
-      "nix-command"
-      # Enable flakes
-      "flakes"
-    ]
-    ++ lib.optional (lib.versionAtLeast (lib.versions.majorMinor config.nix.package.version) "2.19")
-      # Allow the use of the impure-env setting.
-      "configurable-impure-env";
+    # Enable the nix command
+    "nix-command"
+    # Enable flakes
+    "flakes"
+  ] ++ lib.optional
+    (lib.versionAtLeast (lib.versions.majorMinor config.nix.package.version)
+      "2.19")
+    # Allow the use of the impure-env setting.
+    "configurable-impure-env";
 
   # no longer need to pre-allocate build users for everything
   nix.settings.auto-allocate-uids = true;

@@ -1,13 +1,6 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -54,8 +47,9 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ zed-editor qbittorrent vesktop rustup ] ++ [
-  inputs.zen-browser.packages.x86_64-linux.zen-browser];
+  home.packages = with pkgs;
+    [ zed-editor qbittorrent vesktop rustup ]
+    ++ [ inputs.zen-browser.packages.x86_64-linux.zen-browser ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -76,12 +70,10 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup cargo zlib openssl.dev pkg-config ]);
-    extensions = with pkgs.vscode-extensions; [
-      rust-lang.rust-analyzer
-    ];
+    package = pkgs.vscode.fhsWithPackages
+      (ps: with ps; [ rustup cargo zlib openssl.dev pkg-config ]);
+    extensions = with pkgs.vscode-extensions; [ rust-lang.rust-analyzer ];
   };
-
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

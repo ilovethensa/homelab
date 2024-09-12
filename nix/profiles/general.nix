@@ -1,4 +1,4 @@
-{outputs, lib, inputs, config, ...}: {
+{ outputs, lib, inputs, config, ... }: {
   imports = [
     ../services/openssh.nix
     ../configs/boot.nix
@@ -7,7 +7,8 @@
     ../configs/sudo.nix
     ../configs/upgrade-diff.nix
   ];
-  users.users.root.initialHashedPassword = "$6$a5OrpClAzTuokFBn$ODzSyW8pn6QEJsR1Kjsgyy.6rUqV2S865jWiDm4qXRPV26UnF29IfC6HOowInNzCRYrtFk4CwpjGAL/zni.FC/";
+  users.users.root.initialHashedPassword =
+    "$6$a5OrpClAzTuokFBn$ODzSyW8pn6QEJsR1Kjsgyy.6rUqV2S865jWiDm4qXRPV26UnF29IfC6HOowInNzCRYrtFk4CwpjGAL/zni.FC/";
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -33,8 +34,7 @@
     };
   };
 
-  nix = let
-    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
       # Opinionated: disable global registry
@@ -46,7 +46,7 @@
     channel.enable = false;
 
     # Opinionated: make flake registry and nix path match flake inputs
-    registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
+    registry = lib.mapAttrs (_: flake: { inherit flake; }) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 

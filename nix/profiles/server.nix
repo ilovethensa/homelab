@@ -1,14 +1,5 @@
-{
-  config,
-  pkgs,
-  lib,
-  options,
-  ...
-}:
-{
-  imports = [
-    ./general.nix
-  ];
+{ config, pkgs, lib, options, ... }: {
+  imports = [ ./general.nix ];
   environment = {
     # List packages installed in system profile.
     systemPackages = map lib.lowPrio [
@@ -49,13 +40,11 @@
   xdg.mime.enable = lib.mkDefault false;
   xdg.sounds.enable = lib.mkDefault false;
 
-  programs.vim =
-    {
-      defaultEditor = lib.mkDefault true;
-    }
-    // lib.optionalAttrs (options.programs.vim ? enable) {
-      enable = lib.mkDefault true;
-    };
+  programs.vim = {
+    defaultEditor = lib.mkDefault true;
+  } // lib.optionalAttrs (options.programs.vim ? enable) {
+    enable = lib.mkDefault true;
+  };
 
   # Make sure firewall is enabled
   networking.firewall.enable = true;
@@ -64,10 +53,7 @@
   networking.hostName = lib.mkOverride 1337 ""; # lower prio than lib.mkDefault
 
   # If the user is in @wheel they are trusted by default.
-  nix.settings.trusted-users = [
-    "root"
-    "@wheel"
-  ];
+  nix.settings.trusted-users = [ "root" "@wheel" ];
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -83,10 +69,11 @@
   # Given that our systems are headless, emergency mode is useless.
   # We prefer the system to attempt to continue booting so
   # that we can hopefully still access it remotely.
-  boot.initrd.systemd.suppressedUnits = lib.mkIf config.systemd.enableEmergencyMode [
-    "emergency.service"
-    "emergency.target"
-  ];
+  boot.initrd.systemd.suppressedUnits =
+    lib.mkIf config.systemd.enableEmergencyMode [
+      "emergency.service"
+      "emergency.target"
+    ];
 
   systemd = {
     # Given that our systems are headless, emergency mode is useless.
