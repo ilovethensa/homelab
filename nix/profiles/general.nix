@@ -64,4 +64,6 @@
 
   # Ensure a clean & sparkling /tmp on fresh boots.
   boot.tmp.cleanOnBoot = lib.mkDefault true;
+
+  environment.systemPackages = with pkgs; [ git ];
 }
