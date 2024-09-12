@@ -8,7 +8,7 @@
     ../../nix/configs/persist.nix
     ../../nix/services/arr.nix
     ../../nix/profiles/server.nix
-    ../../nix/users/tht.nix
+    ../../nix/users/tht
   ];
 
   # TODO: Set your hostname

@@ -18,7 +18,8 @@
     ../../nix/profiles/desktop.nix
     ../../nix/configs/persist.nix
     ../../nix/configs/gaming.nix
-    ../../nix/users/tht.nix
+    ../../nix/users/tht
+    ../../nix/users/tht/home.nix
   ];
 
   services.xserver.enable = true;
