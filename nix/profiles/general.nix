@@ -1,4 +1,4 @@
-{ outputs, lib, inputs, config, ... }: {
+{ pkgs, outputs, lib, inputs, config, ... }: {
   imports = [
     ../services/openssh.nix
     ../configs/boot.nix
