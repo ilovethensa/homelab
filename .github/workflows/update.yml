@@ -1,0 +1,29 @@
+name: Update flake.lock
+
+on:
+  schedule:
+    - cron: '0 3 * * *' # This cron schedule triggers the job every day at 3 AM
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install jq -y
+
+      - uses: nixbuild/nix-quick-install-action@v28
+
+      - name: Update flake
+        run: nix flake update
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated flake and containers
+
+      # Add additional steps that utilize the environment variables or binaries sourced from direnv
