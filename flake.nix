@@ -12,6 +12,8 @@
     impermanence.url = "github:nix-community/impermanence";
 
     zen-browser.url = "github:heywoodlh/flakes/main?dir=zen-browser";
+
+    nixarr.url = "github:rasmus-kirk/nixarr";
   };
 
   outputs = {

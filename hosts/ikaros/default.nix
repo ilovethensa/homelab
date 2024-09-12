@@ -13,6 +13,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ../../nix/configs/persist.nix
+    ../../nix/services/arr.nix
     ../../nix/profiles/server.nix
     ../../nix/users/tht.nix
   ];
