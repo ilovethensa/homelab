@@ -2,7 +2,7 @@
   imports = [
     ../services/openssh.nix
     ../configs/boot.nix
-    ../configs/networking.nix
+    #../configs/networking.nix
     ../configs/nix.nix
     ../configs/sudo.nix
     ../configs/upgrade-diff.nix
