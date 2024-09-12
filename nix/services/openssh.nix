@@ -6,13 +6,13 @@
     openFirewall = true;
     settings = {
       # Opinionated: forbid root login through SSH.
-      PermitRootLogin = "no";
+      PermitRootLogin = "yes";
       # Opinionated: use keys only.
       # Remove if you want to SSH using passwords
       X11Forwarding = false;
-      KbdInteractiveAuthentication = false;
-      PasswordAuthentication = false;
-      UseDns = false;
+      KbdInteractiveAuthentication = true;
+      PasswordAuthentication = true;
+      UseDns = true;
       # unbind gnupg sockets if they exists
       StreamLocalBindUnlink = true;
     };
