@@ -46,4 +46,14 @@
       openFirewall = true;
     };
   };
+  services.caddy = {
+    virtualHosts = {
+      "watch.theholytachanka.com".extraConfig = ''
+        reverse_proxy :8096 {
+            header_down X-Real-IP {http.request.remote}
+            header_down X-Forwarded-For {http.request.remote}
+        }
+      '';
+    };
+  };
 }

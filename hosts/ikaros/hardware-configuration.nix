@@ -4,38 +4,32 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   fileSystems = {
-    "/" =
-      {
-        device = "none";
-        fsType = "tmpfs";
-      };
-    "/boot" =
-      {
-        device = "/dev/disk/by-uuid/FE61-3063";
-        fsType = "vfat";
-      };
-    "/nix" =
-      {
-        device = "/dev/disk/by-uuid/89b248a1-456b-4d6f-8805-35316ffc970f";
-        fsType = "btrfs";
-        options = [ "subvol=@nix" "compress=zstd" ];
-      };
-    "/home" =
-      {
-        device = "/dev/disk/by-uuid/89b248a1-456b-4d6f-8805-35316ffc970f";
-        fsType = "btrfs";
-        options = [ "subvol=@home" "compress=zstd" ];
-      };
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+    };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/FE61-3063";
+      fsType = "vfat";
+    };
+    "/nix" = {
+      device = "/dev/disk/by-uuid/89b248a1-456b-4d6f-8805-35316ffc970f";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" "compress=zstd" ];
+    };
+    "/home" = {
+      device = "/dev/disk/by-uuid/89b248a1-456b-4d6f-8805-35316ffc970f";
+      fsType = "btrfs";
+      options = [ "subvol=@home" "compress=zstd" ];
+    };
     "/mnt/data" = {
       device = "/dev/disk/by-uuid/98655513-e41f-4377-8b36-15a6a46540e2";
       fsType = "btrfs";
@@ -57,5 +51,6 @@
   # networking.interfaces.enp0s31f6.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
