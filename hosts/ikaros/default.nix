@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ../../nix/configs/persist.nix
     ../../nix/services/arr.nix
+    ../../nix/services/jellyseerr.nix
     ../../nix/services/caddy.nix
     ../../nix/profiles/server.nix
     ../../nix/users/tht
