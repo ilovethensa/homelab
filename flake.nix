@@ -57,6 +57,10 @@
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/viper ];
         };
+        mute = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./hosts/mute ];
+        };
         ikaros = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./hosts/ikaros ];
