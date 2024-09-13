@@ -11,9 +11,9 @@
 
     impermanence.url = "github:nix-community/impermanence";
 
-    zen-browser.url = "github:heywoodlh/flakes/main?dir=zen-browser";
-
     nixarr.url = "github:rasmus-kirk/nixarr";
+
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

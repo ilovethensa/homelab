@@ -12,6 +12,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./sway.nix
+    ./firefox.nix
   ];
 
   nixpkgs = {
@@ -48,8 +49,7 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs;
-    [ zed-editor qbittorrent vesktop rustup ]
-    ++ [ inputs.zen-browser.packages.x86_64-linux.zen-browser ];
+    [ zed-editor qbittorrent vesktop rustup ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
