@@ -29,7 +29,7 @@
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
-  networking.hostName = "viper";
+  networking.hostName = "mute";
   networking.firewall.enable = false;
 
   # Enable common container config files in /etc/containers
