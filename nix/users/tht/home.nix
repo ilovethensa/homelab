@@ -3,7 +3,7 @@
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      tht = import ../../home/tht;
+      tht = import ../../../home/tht;
     };
   };
 }
