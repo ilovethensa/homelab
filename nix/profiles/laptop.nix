@@ -1,5 +1,7 @@
 { pkgs, ... }: {
   imports = [ ./desktop.nix ];
+  networking.wireless.enable = false;
+  networking.networkmanager.enable = true;
   services.tlp = {
         enable = true;
         settings = {
