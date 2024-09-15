@@ -13,6 +13,7 @@
     # ./nvim.nix
     ./sway.nix
     #./firefox.nix
+    ./vscode.nix
   ];
 
   nixpkgs = {
