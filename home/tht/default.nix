@@ -13,6 +13,7 @@
     # ./nvim.nix
     ./sway.nix
     #./firefox.nix
+    ./vscode.nix
   ];
 
   nixpkgs = {
@@ -66,13 +67,6 @@
       obs-vkcapture
       obs-pipewire-audio-capture
     ];
-  };
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode.fhsWithPackages
-      (ps: with ps; [ rustup cargo zlib openssl.dev pkg-config ]);
-    extensions = with pkgs.vscode-extensions; [ rust-lang.rust-analyzer ];
   };
 
   # Nicely reload system units when changing configs
