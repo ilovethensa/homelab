@@ -1,5 +1,11 @@
-{ config, pkgs, lib, options, ... }: {
-  imports = [ ./general.nix ];
+{
+  config,
+  pkgs,
+  lib,
+  options,
+  ...
+}: {
+  imports = [./general.nix];
   environment = {
     # List packages installed in system profile.
     systemPackages = map lib.lowPrio [
@@ -16,6 +22,10 @@
     # stubs. Server users should know what they are doing.
     stub-ld.enable = lib.mkDefault false;
   };
+
+  boot.kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.supportedFilesystems = ["zfs" "btrfs"];
+  services.zfs.autoScrub.enable = true;
 
   # Restrict the number of boot entries to prevent full /boot partition.
   #
@@ -40,11 +50,13 @@
   xdg.mime.enable = lib.mkDefault false;
   xdg.sounds.enable = lib.mkDefault false;
 
-  programs.vim = {
-    defaultEditor = lib.mkDefault true;
-  } // lib.optionalAttrs (options.programs.vim ? enable) {
-    enable = lib.mkDefault true;
-  };
+  programs.vim =
+    {
+      defaultEditor = lib.mkDefault true;
+    }
+    // lib.optionalAttrs (options.programs.vim ? enable) {
+      enable = lib.mkDefault true;
+    };
 
   # Make sure firewall is enabled
   networking.firewall.enable = true;
@@ -53,7 +65,7 @@
   networking.hostName = lib.mkOverride 1337 ""; # lower prio than lib.mkDefault
 
   # If the user is in @wheel they are trusted by default.
-  nix.settings.trusted-users = [ "root" "@wheel" ];
+  nix.settings.trusted-users = ["root" "@wheel"];
 
   security.sudo.wheelNeedsPassword = false;
 
@@ -69,11 +81,10 @@
   # Given that our systems are headless, emergency mode is useless.
   # We prefer the system to attempt to continue booting so
   # that we can hopefully still access it remotely.
-  boot.initrd.systemd.suppressedUnits =
-    lib.mkIf config.systemd.enableEmergencyMode [
-      "emergency.service"
-      "emergency.target"
-    ];
+  boot.initrd.systemd.suppressedUnits = lib.mkIf config.systemd.enableEmergencyMode [
+    "emergency.service"
+    "emergency.target"
+  ];
 
   systemd = {
     # Given that our systems are headless, emergency mode is useless.
