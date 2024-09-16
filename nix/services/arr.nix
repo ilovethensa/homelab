@@ -1,5 +1,5 @@
-{ inputs, ... }: {
-  imports = [ inputs.nixarr.nixosModules.default ];
+{inputs, ...}: {
+  imports = [inputs.nixarr.nixosModules.default];
   nixarr = {
     enable = true;
     # These two values are also the default, but you can set them to whatever
@@ -25,19 +25,11 @@
       enable = true;
       openFirewall = true;
     };
-    lidarr = {
-      enable = true;
-      openFirewall = true;
-    };
     prowlarr = {
       enable = true;
       openFirewall = true;
     };
     radarr = {
-      enable = true;
-      openFirewall = true;
-    };
-    readarr = {
       enable = true;
       openFirewall = true;
     };
