@@ -129,8 +129,8 @@ in {
             };
           };
           extraConfig = ''
-            font pango:FiraCode Sans Mono 14
-            status_padding 7
+            font pango:FiraCode Sans Mono 12
+            status_padding 5
           '';
         }
       ];
