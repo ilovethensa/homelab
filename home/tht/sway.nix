@@ -119,15 +119,6 @@ in {
         {
           statusCommand = "${pkgs.i3status}/bin/i3status";
           position = "top";
-          colors = {
-            statusline = "#ffffff";
-            background = "#323232";
-            inactiveWorkspace = {
-              #background = "#32323200";
-              #border = "#32323200";
-              #text = "#5c5c5c";
-            };
-          };
           extraConfig = ''
             font pango:FiraCode Sans Mono 10
           '';
