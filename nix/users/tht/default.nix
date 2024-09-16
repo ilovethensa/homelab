@@ -24,7 +24,7 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMcTC/l7AvXzPhEJ+8PPy7NG84G7VtgJ1QWsW+xcFZgb tht"
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel" "audio" "video" "gamemode" "lxd"];
+      extraGroups = ["wheel" "audio" "video" "gamemode"];
     };
   };
 }
