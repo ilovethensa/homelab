@@ -50,17 +50,7 @@ in {
         set fish_greeting # Disable greeting
         ${pkgs.starship}/bin/starship init fish | source
         ${pkgs.nitch}/bin/nitch
-        function help
-          ${pkgs.curl}/bin/curl cheat.sh/$argv | ${pkgs.less}/bin/less
-        end
-        function nix-init
-          set -l lang $argv[1]
-          set -l project_name $argv[2]
-
-          mkdir $project_name
-          cd $project_name
-          nix flake init -t ~/Projects/lol/dots/#$lang
-        end
+        export SUDO_PROMPT='[sudo] %p 🔒: '
       '';
       shellAliases = {
         ls = "${pkgs.eza}/bin/eza -la";
