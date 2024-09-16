@@ -18,8 +18,6 @@
       vscode-icons-team.vscode-icons
       aaron-bond.better-comments
       kamadorueda.alejandra
-      ms-python.python
-      ms-python.vscode-pylance
       continue.continue
       astro-build.astro-vscode
     ];
