@@ -18,8 +18,9 @@
       vscode-icons-team.vscode-icons
       aaron-bond.better-comments
       kamadorueda.alejandra
+      continue.continue
+      astro-build.astro-vscode
     ];
-
     # Define user settings for Visual Studio Code
     userSettings = {
       "workbench.colorTheme" = "Catppuccin Mocha";
