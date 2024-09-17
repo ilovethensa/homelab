@@ -23,8 +23,9 @@
     stub-ld.enable = lib.mkDefault false;
   };
 
-  boot.kernelPackages = lib.mkForce config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_hardened;
   boot.supportedFilesystems = ["zfs" "btrfs"];
+  boot.zfs.forceImportRoot = false;
   services.zfs.autoScrub.enable = true;
 
   # Restrict the number of boot entries to prevent full /boot partition.
