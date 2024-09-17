@@ -12,6 +12,7 @@
     #../configs/networking.nix
     ../configs/nix.nix
     ../configs/sudo.nix
+    ../configs/gpg.nix
     ../configs/upgrade-diff.nix
   ];
   users.users.root.initialHashedPassword = "$6$a5OrpClAzTuokFBn$ODzSyW8pn6QEJsR1Kjsgyy.6rUqV2S865jWiDm4qXRPV26UnF29IfC6HOowInNzCRYrtFk4CwpjGAL/zni.FC/";
