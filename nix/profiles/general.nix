@@ -1,4 +1,11 @@
-{ pkgs, outputs, lib, inputs, config, ... }: {
+{
+  pkgs,
+  outputs,
+  lib,
+  inputs,
+  config,
+  ...
+}: {
   imports = [
     ../services/openssh.nix
     ../configs/boot.nix
@@ -7,8 +14,7 @@
     ../configs/sudo.nix
     ../configs/upgrade-diff.nix
   ];
-  users.users.root.initialHashedPassword =
-    "$6$a5OrpClAzTuokFBn$ODzSyW8pn6QEJsR1Kjsgyy.6rUqV2S865jWiDm4qXRPV26UnF29IfC6HOowInNzCRYrtFk4CwpjGAL/zni.FC/";
+  users.users.root.initialHashedPassword = "$6$a5OrpClAzTuokFBn$ODzSyW8pn6QEJsR1Kjsgyy.6rUqV2S865jWiDm4qXRPV26UnF29IfC6HOowInNzCRYrtFk4CwpjGAL/zni.FC/";
   nixpkgs = {
     # Configure your nixpkgs instance
     config = {
@@ -17,7 +23,8 @@
     };
   };
 
-  nix = let flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
+  nix = let
+    flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
     settings = {
       # Opinionated: disable global registry
@@ -44,5 +51,5 @@
   # Ensure a clean & sparkling /tmp on fresh boots.
   boot.tmp.cleanOnBoot = lib.mkDefault true;
 
-  environment.systemPackages = with pkgs; [ git ];
+  environment.systemPackages = with pkgs; [git];
 }
