@@ -1,12 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
-  imports = [
-    # Import home-manager's NixOS module
-    inputs.home-manager.nixosModules.home-manager
-  ];
+{pkgs, ...}: {
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   users.users = {
