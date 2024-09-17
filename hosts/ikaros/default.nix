@@ -27,6 +27,9 @@
 
   boot.zfs.extraPools = ["media"];
 
+  virtualisation.docker.enable = true;
+  virtualisation.oci-containers.backend = "docker";
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
 }
