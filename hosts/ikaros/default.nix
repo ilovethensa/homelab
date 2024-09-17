@@ -13,6 +13,7 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     ../../nix/configs/persist.nix
+    ../../nix/configs/motd.nix
     ../../nix/services/arr.nix
     ../../nix/services/jellyseerr.nix
     ../../nix/services/caddy.nix
