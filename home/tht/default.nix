@@ -51,7 +51,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ungoogled-chromium tor-browser zed-editor qbittorrent vesktop rustup kdePackages.kleopatra];
+  home.packages = with pkgs; [ungoogled-chromium tor-browser zed-editor qbittorrent vesktop rustup radicle-node];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
