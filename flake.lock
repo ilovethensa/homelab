@@ -7,11 +7,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1733198595,
-        "narHash": "sha256-7n66bpxbXkwBow1VSVHQe+rEW+8zPyawmDJ7Rd0uHNI=",
+        "lastModified": 1733354814,
+        "narHash": "sha256-GNtstc88gUJllOun6UFQzg7P+fDtWkajxN4kUKPLFsw=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "51d5446f359b67d5b6fdf45a145391c4d8679b3e",
+        "rev": "fd1cc13f297bb18b85a776060edca35b18c7a324",
         "type": "gitlab"
       },
       "original": {
@@ -43,11 +43,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1733175814,
-        "narHash": "sha256-zFOtOaqjzZfPMsm1mwu98syv3y+jziAq5DfWygaMtLg=",
+        "lastModified": 1733354384,
+        "narHash": "sha256-foZG2PLwumxYZkpXq7ajHDhuQlXaUeKfOpFfQpMviLM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bf23fe41082aa0289c209169302afd3397092f22",
+        "rev": "0daaded612b0e6eaed0a63fc9d0778d8f05940fe",
         "type": "github"
       },
       "original": {
@@ -77,11 +77,11 @@
         "vpnconfinement": "vpnconfinement"
       },
       "locked": {
-        "lastModified": 1732090122,
-        "narHash": "sha256-KN5jsK5O0QEWMXgCW9aa3sujIZQE1sSnpBOIXDXOeKU=",
+        "lastModified": 1733343637,
+        "narHash": "sha256-uCdhMDO/Fc9uluVhy+fcCDv7dxTWL97k2OurxGoqVNM=",
         "owner": "rasmus-kirk",
         "repo": "nixarr",
-        "rev": "5dad51d4d4e0d71e8943b23b464230b190f1c259",
+        "rev": "3c80d221c6166c640aa214681680f9f2fbf11e4d",
         "type": "github"
       },
       "original": {
