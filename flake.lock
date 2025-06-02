@@ -55,6 +55,22 @@
         "type": "github"
       }
     },
+    "nix-mineral": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1748132667,
+        "narHash": "sha256-WOYKIUoz2BMiKskAPDEoLfzAlYgUHPZDZJd8107HB7Y=",
+        "owner": "cynicsketch",
+        "repo": "nix-mineral",
+        "rev": "19a106ca8c1193f83debdda6bb90d2c206e833a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cynicsketch",
+        "repo": "nix-mineral",
+        "type": "github"
+      }
+    },
     "nixarr": {
       "inputs": {
         "nixpkgs": "nixpkgs_2",
@@ -144,6 +160,7 @@
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
+        "nix-mineral": "nix-mineral",
         "nixarr": "nixarr",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-stable": "nixpkgs-stable"

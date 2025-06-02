@@ -3,5 +3,4 @@
 pkgs:
 {
   # example = pkgs.callPackage ./example { };
-  thorium = pkgs.callPackage ./thorium { };
 }
