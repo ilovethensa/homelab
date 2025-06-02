@@ -43,7 +43,7 @@
   environment = {
     # This is pulled in by the container profile, but it seems broken and causes
     # unnecessary rebuilds.
-    noXlibs = false;
+    # noXlibs = false;
     # Don't install the /lib/ld-linux.so.2 stub. This saves one instance of
     # nixpkgs.
     ldso32 = null;
