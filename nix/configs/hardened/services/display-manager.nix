@@ -1,4 +1,4 @@
-{
+{lib, ...}:{
   systemd.services.display-manager.serviceConfig = {
     ProtectSystem = "full";
     ProtectControlGroups = true;
@@ -8,10 +8,10 @@
     PrivateIPC = true;
     RestrictSUIDSGID = true;
     RestrictRealtime = true;
-    RestrictNamespaces = [ 
-      "~cgroup" 
+    RestrictNamespaces = [
+      "~cgroup"
     ];
-    RestrictAddressFamilies = [ 
+    RestrictAddressFamilies = [
       "AF_UNIX"
       "AF_NETLINK"
       "AF_INET"
@@ -32,7 +32,7 @@
     LockPersonality = true;
     IPAddressDeny = ["0.0.0.0/0" "::/0"];
     CapabilityBoundingSet = [
-      "CAP_SYS_ADMIN" 
+      "CAP_SYS_ADMIN"
       "CAP_SETUID"
       "CAP_SETGID"
       "CAP_SETPCAP"
@@ -41,7 +41,7 @@
       "CAP_DAC_OVERRIDE"
       "CAP_DAC_READ_SEARCH"
       "CAP_FOWNER"
-      "CAP_IPC_OWNER" 
+      "CAP_IPC_OWNER"
       "CAP_FSETID"
       "CAP_SETFCAP"
       "CAP_CHOWN"

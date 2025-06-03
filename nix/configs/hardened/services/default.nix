@@ -1,5 +1,5 @@
 {...}: {
-  import = [
+  imports = [
     ./NetworkManager-dispatcher.nix
     ./autovt.nix
     ./dbus.nix
@@ -8,7 +8,6 @@
     ./systemd-rfkill.nix
     ./NetworkManager.nix
     ./blocky.nix
-    ./default.nix
     ./nscd.nix
     ./systemd-ask-password-console.nix
     ./systemd-udevd.nix

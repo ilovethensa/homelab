@@ -1,11 +1,13 @@
 { config, lib, pkgs, ... }:
 {
-  import = [
-    ./services
-  ]
+  imports = [
+     ./services
+  ];
+  # Disable because its not needed
+  systemd.services."emergency".enable = lib.mkForce false;
   # scudo memory allocato
-  environment.memoryAllocator.provider = "scudo";
-  environment.variables.SCUDO_OPTIONS = "ZeroContents=1";
+  #environment.memoryAllocator.provider = "scudo";
+  #environment.variables.SCUDO_OPTIONS = "ZeroContents=1";
 
   # kernel hardening
   security.lockKernelModules = true;

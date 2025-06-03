@@ -4,6 +4,24 @@
     sha256 = "0vaywlhyv9gp31pn37n9iz3cgzi6r5bmwkh6f07bwmpviylfpzzy";
     name = "Linux_Nixos_operating_system_minimalism-2175185.jpg";
   };
+  rofi-sound = pkgs.writeShellScript "rofi-sound" ''
+      # Do not change these lines
+      sinks=$(${pkgs.pulseaudio}/bin/pactl list sinks | grep "Name:" | awk '{print $2}')
+      names=$(pactl list sinks | grep "Description:" | cut -d ':' -f 2- | sed 's/^[[:space:]]*//' | sed 's/[^a-zA-Z0-9 ].*//')
+
+      # Pipe the names to Rofi for selection
+      selected_name=$(echo -e "$names" | rofi -dmenu -p "Select a sink:")
+
+      # You can now use the 'selected_name' variable if you want to do something with the selection later
+      # For this request, we are not doing anything else with it, just letting the user select.
+
+      sink_name=$(pactl list sinks | grep -B 1 "\$\{selected_name}" | head -n 1 | awk '{print $2}')
+
+      pactl set-default-sink $sink_name
+
+      notify-send "Switched output to: \$\{selected_name}"
+
+  '';
 in {
   programs.i3status.enable = true;
   wayland.windowManager.sway = {
@@ -30,8 +48,8 @@ in {
         "${modifier}+e" = "exec ${pkgs.foot}/bin/footclient ${pkgs.yazi}/bin/yazi";
 
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/footclient";
-        "${modifier}+Shift+s" = ''
-          exec --no-startup-id ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard-rs}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Screenshot taken" -i camera-photo-symbolic'';
+        "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot savecopy area";
+        "${modifier}+b" = "exec ${rofi-sound}";
 
         "${modifier}+Shift+T" = "exec ${pkgs.obs-cmd}/bin/obs-cmd  replay toggle";
         "${modifier}+Shift+G" = "exec ${pkgs.obs-cmd}/bin/obs-cmd  replay save";

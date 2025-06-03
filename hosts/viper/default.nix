@@ -15,7 +15,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    ../../nix/configs/hardened
+    #../../nix/configs/hardened
     ../../nix/profiles/desktop.nix
     ../../nix/configs/persist.nix
     ../../nix/configs/gaming.nix
@@ -35,18 +35,18 @@
   networking.firewall.enable = false;
 
   # Enable common container config files in /etc/containers
-  virtualisation.containers.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
+  #virtualisation.containers.enable = true;
+  #virtualisation = {
+  #  podman = {
+  #    enable = true;
 
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
+  #    # Create a `docker` alias for podman, to use it as a drop-in replacement
+  #    dockerCompat = true;
 
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
+  #    # Required for containers under podman-compose to be able to talk to each other.
+  #    defaultNetwork.settings.dns_enabled = true;
+  #  };
+  #};
   # Useful other development tools
   environment.systemPackages = with pkgs; [
     distrobox
