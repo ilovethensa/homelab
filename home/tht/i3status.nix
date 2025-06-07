@@ -19,23 +19,23 @@
       settings = {
         format = "T: %degrees °C";
         # Note: Make sure this path is correct for your specific hardware.
-        path = "/sys/devices/platform/coretemp.0/temp1_input";
+        path = "/sys/class/hwmon/hwmon1/temp1_input";
       };
     };
 
-    "wireless \"_first_\"" = {
+    "wireless _first_" = {
       position = 20;
       settings = {
-        format_down = "W: down";
         format_up = "W: (%quality at %essid) %ip";
+        format_down = "W: down";
       };
     };
 
-    "ethernet \"_first_\"" = {
+    "ethernet _first_" = {
       position = 30;
       settings = {
-        format_down = "E: down";
         format_up = "E: %ip (%speed)";
+        format_down = "E: down";
       };
     };
 
@@ -46,7 +46,7 @@
       };
     };
 
-    "disk \"/\"" = {
+    "disk /nix" = {
       position = 50;
       settings = {
         format = "%avail";

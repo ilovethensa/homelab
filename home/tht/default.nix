@@ -53,7 +53,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [tor-browser zed-editor qbittorrent vesktop rustup radicle-node thunderbird nixd gimp3
+  home.packages = with pkgs; [tor-browser zed-editor qbittorrent vesktop rustup radicle-node thunderbird nixd gimp3 nil btop pulsemixer
     (pkgs.ollama.override {
        acceleration = "rocm";
      })
