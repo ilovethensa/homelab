@@ -13,7 +13,7 @@
     PrivateTmp = true;
     RestrictSUIDSGID = true;
     RestrictRealtime = true;
-    RestrictAddressFamilies = [ 
+    RestrictAddressFamilies = [
       "AF_UNIX"
       "AF_NETLINK"
     ];

@@ -1,26 +1,131 @@
-{ pkgs
-, inputs
-, ...
+{
+  pkgs,
+  inputs,
+  ...
 }: {
   programs.firefox = {
     enable = true;
-    package = pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { };
+    package = pkgs.wrapFirefox (pkgs.firefox-unwrapped.override {pipewireSupport = true;}) {};
+    policies = {
+      DisableSetDesktopBackground = true;
+      DisableTelemetry = true;
+    };
     profiles.default = {
       id = 0;
       name = "Default";
       isDefault = true;
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        darkreader
-        ublock-origin
-        libredirect
-        sponsorblock
-        istilldontcareaboutcookies
-        dearrow
-        violentmonkey
-        boring-rss
-        bitwarden
-      ];
+      extensions = {
+        force = true;
+        settings = {
+          "sponsorBlocker@ajay.app".settings = {
+            categorySelections = [
+              {
+                name = "sponsor";
+                option = 2;
+              }
+              {
+                name = "poi_highlight";
+                option = 2;
+              }
+              {
+                name = "exclusive_access";
+                option = 0;
+              }
+              {
+                name = "chapter";
+                option = 0;
+              }
+              {
+                name = "selfpromo";
+                option = 2;
+              }
+              {
+                name = "interaction";
+                option = 2;
+              }
+              {
+                name = "intro";
+                option = 2;
+              }
+              {
+                name = "outro";
+                option = 2;
+              }
+              {
+                name = "preview";
+                option = 2;
+              }
+              {
+                name = "filler";
+                option = 2;
+              }
+              {
+                name = "music_offtopic";
+                option = 2;
+              }
+            ];
+          };
+          "uBlock0@raymondhill.net".settings = {
+            selectedFilterLists = [
+              "BGR-0"
+              "adguard-cookies"
+              "adguard-generic"
+              "adguard-mobile"
+              "adguard-mobile-app-banners"
+              "adguard-other-annoyances"
+              "adguard-popup-overlays"
+              "adguard-social"
+              "adguard-spyware"
+              "adguard-spyware-url"
+              "adguard-widgets"
+              "block-lan"
+              "curben-phishing"
+              "easylist"
+              "easylist-annoyances"
+              "easylist-chat"
+              "easylist-newsletters"
+              "easylist-notifications"
+              "easyprivacy"
+              "fanboy-cookiemonster"
+              "fanboy-social"
+              "fanboy-thirdparty_social"
+              "ublock-annoyances"
+              "ublock-badlists"
+              "ublock-badware"
+              "ublock-cookies-adguard"
+              "ublock-cookies-easylist"
+              "ublock-filters"
+              "ublock-privacy"
+              "ublock-quick-fixes"
+              "ublock-unbreak"
+              "urlhaus-1"
+              "plowe-0"
+              "dpollock-0"
+              "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/sponsorblock.txt"
+            ];
+            userSettings = {
+              externalLists = "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/sponsorblock.txt";
+              importedLists = [
+                "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/filters/sponsorblock.txt"
+                "https://raw.githubusercontent.com/mchangrh/yt-neuter/main/yt-neuter.txt"
+              ];
+            };
+          };
+        };
+        packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+          darkreader
+          ublock-origin
+          sponsorblock
+          bitwarden
+        ];
+      };
       settings = {
+        "browser.tabs.inTitlebar" = 0;
+        "sidebar.main.tools" = "aichat,bookmarks";
+        "sidebar.position_start" = false;
+        "sidebar.revamp" = true;
+        "identity.fxaccounts.enabled" = false;
+
         "extensions.autoDisableScopes" = 0;
         "extensions.enabledScopes" = 15;
         "privacy.resistFingerprinting" = true;
@@ -175,10 +280,10 @@
       userChrome = ''
       '';
       search = {
-        default = "DuckDuckGo";
-        privateDefault = "DuckDuckGo";
+        default = "ddg";
+        privateDefault = "ddg";
         force = true;
-        order = [ "DuckDuckGo" "NixOS Wiki" "Nix Packages" ];
+        order = ["ddg" "NixOS Wiki" "Nix Packages"];
         engines = {
           "Nix Packages" = {
             urls = [
@@ -198,7 +303,7 @@
             ];
 
             icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-            definedAliases = [ "np" ];
+            definedAliases = ["np"];
           };
 
           "NixOS Wiki" = {
@@ -207,9 +312,9 @@
                 template = "https://nixos.wiki/index.php?search={searchTerms}";
               }
             ];
-            iconUpdateURL = "https://nixos.wiki/favicon.png";
+            icon = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = [ "nw" ];
+            definedAliases = ["nw"];
           };
           "Mynixos" = {
             urls = [
@@ -217,11 +322,27 @@
                 template = "https://mynixos.com/search?q={searchTerms}";
               }
             ];
-            iconUpdateURL = "https://nixos.wiki/favicon.png";
+            icon = "https://nixos.wiki/favicon.png";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = [ "ns" ];
+            definedAliases = ["ns"];
           };
-          "DuckDuckGo" = {
+          "Nix Options" = {
+            urls = [
+              {
+                template = "https://mynixos.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+
+            icon = "https://mynixos.com/favicon.ico";
+            definedAliases = ["no"];
+          };
+          "ddg" = {
             urls = [
               {
                 template = "https://duckduckgo.com/search?q={searchTerms}";
@@ -229,10 +350,10 @@
             ];
             #iconUpdateURL = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
             updateInterval = 24 * 60 * 60 * 1000; # every day
-            definedAliases = [ "br" ];
+            definedAliases = ["br"];
           };
-          "Bing".metaData.hidden = true;
-          "Google".metaData.hidden = true;
+          "bing".metaData.hidden = true;
+          "google".metaData.hidden = true;
           "Amazon".metaData.hidden = true;
         };
       };

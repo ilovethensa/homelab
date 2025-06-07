@@ -29,5 +29,4 @@
     ./rtkit.nix
     ./systemd-machined.nix
   ];
-
 }

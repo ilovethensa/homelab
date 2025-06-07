@@ -3,12 +3,12 @@
     NoNewPrivileges = true;
     ProtectSystem = "strict";
     ProtectHome = "read-only";
-    ProtectClock = true; 
+    ProtectClock = true;
     ProtectHostname = true;
     ProtectKernelTunables = true;
     ProtectKernelModules = true;
     ProtectKernelLogs = true;
-    ProtectControlGroups = true; 
+    ProtectControlGroups = true;
     ProtectProc = "invisible";
     PrivateTmp = true;
     PrivateMounts = true;
@@ -22,11 +22,11 @@
     SystemCallFilter = [
       "~@keyring"
       "~@swap"
-      "~@clock"         
+      "~@clock"
       "~@module"
       "~@obsolete"
       "~@cpu-emulation"
     ];
     SystemCallArchitectures = "native";
-  }; 
+  };
 }

@@ -3,7 +3,7 @@
     NoNewPrivileges = true;
     ProtectSystem = "strict";
     ProtectHome = true;
-    ProtectClock = true; 
+    ProtectClock = true;
     ProtectHostname = true;
     ProtectKernelTunables = true;
     ProtectKernelModules = true;
@@ -15,8 +15,8 @@
     RestrictNamespaces = true;
     RestrictRealtime = true;
     RestrictSUIDSGID = true;
-    RestrictAddressFamilies = [ 
-      "~AF_INET6"  
+    RestrictAddressFamilies = [
+      "~AF_INET6"
       "~AF_INET"
       "~AF_PACKET"
     ];
@@ -26,8 +26,8 @@
     SystemCallFilter = [
       "~@keyring"
       "~@swap"
-      "~@obsolete" 
-      "~@cpu-emulation" 
+      "~@obsolete"
+      "~@cpu-emulation"
     ];
     SystemCallArchitectures = "native";
   };

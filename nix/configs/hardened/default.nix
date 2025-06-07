@@ -1,7 +1,11 @@
-{ config, lib, pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
-     ./services
+    ./services
   ];
   # Disable because its not needed
   systemd.services."emergency".enable = lib.mkForce false;
@@ -101,8 +105,8 @@
 
   # enable firewall and block all ports
   #networking.firewall.enable = true; # already defined by networking.nix
-  networking.firewall.allowedTCPPorts = [ ];
-  networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [];
+  networking.firewall.allowedUDPPorts = [];
 
   # disable coredump that could be exploited later
   # and also slow down the system when something crash
@@ -118,7 +122,6 @@
   # that will wrap the real binaries so everything
   # work out of the box.
   programs.firejail.wrappedBinaries = {
-
     chromium = {
       executable = "${pkgs.lib.getBin pkgs.chromium}/bin/chromium";
       profile = "${pkgs.firejail}/etc/firejail/chromium.profile";
@@ -132,7 +135,7 @@
     signal-desktop = {
       executable = "${pkgs.lib.getBin pkgs.signal-desktop}/bin/signal-desktop --enable-features=UseOzonePlatform --ozone-platform=wayland";
       profile = "${pkgs.firejail}/etc/firejail/signal-desktop.profile";
-      extraArgs = [ "--env=GTK_THEME=Adwaita:dark" ];
+      extraArgs = ["--env=GTK_THEME=Adwaita:dark"];
     };
 
     keepassxc = {
@@ -150,5 +153,4 @@
       profile = "${pkgs.firejail}/transmission-gtk.profile";
     };
   };
-
 }

@@ -5,7 +5,7 @@
     ProtectHome = true;
     ProtectKernelLogs = true;
     ProtectControlGroups = true;
-    ProtectClock = true; 
+    ProtectClock = true;
     ProtectHostname = true;
     ProtectProc = "invisible";
     PrivateTmp = true;
@@ -13,7 +13,7 @@
     PrivateUsers = true;
     RestrictNamespaces = true;
     RestrictRealtime = true;
-    RestrictAddressFamilies = [ "AF_UNIX" ];
+    RestrictAddressFamilies = ["AF_UNIX"];
     RestrictSUIDSGID = true;
     MemoryDenyWriteExecute = true;
     SystemCallFilter = [
@@ -25,7 +25,7 @@
     SystemCallArchitectures = "native";
     LockPersonality = true;
     CapabilityBoundingSet = [
-      "~CAP_SYS_PTRACE" 
+      "~CAP_SYS_PTRACE"
       "~CAP_SYS_PACCT"
     ];
   };

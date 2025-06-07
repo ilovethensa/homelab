@@ -3,7 +3,7 @@
     NoNewPrivileges = true;
     ProtectSystem = "strict";
     ProtectHome = true;
-    ProtectClock = true; 
+    ProtectClock = true;
     ProtectHostname = true;
     ProtectKernelTunables = true;
     ProtectKernelModules = true;
@@ -16,7 +16,7 @@
     RestrictNamespaces = true;
     RestrictRealtime = true;
     RestrictSUIDSGID = true;
-    RestrictAddressFamilies = [ "AF_UNIX" ];
+    RestrictAddressFamilies = ["AF_UNIX"];
     MemoryDenyWriteExecute = true;
     SystemCallArchitectures = "native";
   };

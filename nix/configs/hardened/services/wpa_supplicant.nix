@@ -6,14 +6,14 @@
     ProtectKernelModules = true;
     ProtectKernelLogs = true;
     ProtectControlGroups = true;
-    ProtectClock = true; 
+    ProtectClock = true;
     ProtectHostname = true;
     ProtectProc = "invisible";
     PrivateTmp = true;
     PrivateMounts = true;
     RestrictRealtime = true;
-    RestrictAddressFamilies = [ 
-      "AF_UNIX" 
+    RestrictAddressFamilies = [
+      "AF_UNIX"
       "AF_NETLINK"
       "AF_INET"
       "AF_INET6"
@@ -30,13 +30,13 @@
       "~@reboot"
       "~@module"
       "~@swap"
-      "~@resources" 
-      "~@obsolete" 
-      "~@cpu-emulation" 
+      "~@resources"
+      "~@obsolete"
+      "~@cpu-emulation"
       "ptrace"
     ];
     SystemCallArchitectures = "native";
-    LockPersonality= true; 
+    LockPersonality = true;
     CapabilityBoundingSet = "CAP_NET_ADMIN CAP_NET_RAW";
   };
 }

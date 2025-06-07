@@ -13,7 +13,7 @@
     PrivateTmp = true;
     RestrictSUIDSGID = true;
     RestrictRealtime = true;
-    RestrictAddressFamilies = [ 
+    RestrictAddressFamilies = [
       "AF_UNIX"
     ];
     RestrictNamespaces = true;
@@ -27,7 +27,7 @@
       "~@reboot"
       "~@swap"
       "~@cpu-emulation"
-   ];
+    ];
     LockPersonality = true;
     IPAddressDeny = ["0.0.0.0/0" "::/0"];
     MemoryDenyWriteExecute = true;

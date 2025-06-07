@@ -1,7 +1,7 @@
 {
   systemd.services."user@".serviceConfig = {
     ProtectSystem = "strict";
-    ProtectClock = true; 
+    ProtectClock = true;
     ProtectHostname = true;
     ProtectKernelTunables = true;
     ProtectKernelModules = true;
@@ -10,8 +10,8 @@
     PrivateTmp = true;
     PrivateNetwork = true;
     MemoryDenyWriteExecute = true;
-    RestrictAddressFamilies = [ 
-      "AF_UNIX" 
+    RestrictAddressFamilies = [
+      "AF_UNIX"
       "AF_NETLINK"
       "AF_BLUETOOTH"
     ];
@@ -23,8 +23,8 @@
       "~@swap"
       "~@debug"
       "~@module"
-      "~@obsolete" 
-      "~@cpu-emulation" 
+      "~@obsolete"
+      "~@cpu-emulation"
     ];
     SystemCallArchitectures = "native";
   };

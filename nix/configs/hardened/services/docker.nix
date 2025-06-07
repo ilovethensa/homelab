@@ -5,17 +5,17 @@
     ProtectHome = true;
     ProtectKernelModules = true;
     ProtectKernelLogs = true;
-    ProtectControlGroups = true; 
+    ProtectControlGroups = true;
     ProtectClock = true;
     ProtectProc = "invisible";
     PrivateTmp = true;
     PrivateMounts = true;
     RestrictRealtime = true;
-    RestrictAddressFamilies = [ 
+    RestrictAddressFamilies = [
       "AF_UNIX"
       "AF_NETLINK"
-      "AF_INET" 
-      "AF_INET6" 
+      "AF_INET"
+      "AF_INET6"
     ];
     RestrictNamespaces = [
       "~user"
@@ -28,11 +28,11 @@
       "~@clock"
       "~@module"
       "~@swap"
-      "~@obsolete" 
-      "~@cpu-emulation" 
+      "~@obsolete"
+      "~@cpu-emulation"
     ];
     SystemCallArchitectures = "native";
-    CapabilityBoundingSet= [
+    CapabilityBoundingSet = [
       "~CAP_SYS_RAWIO"
       "~CAP_SYS_PTRACE"
       "~CAP_SYS_BOOT"

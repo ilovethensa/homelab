@@ -6,7 +6,7 @@
     ProtectHostname = true;
     ProtectKernelTunables = true;
     ProtectKernelModules = true;
-    ProtectControlGroups = true; 
+    ProtectControlGroups = true;
     ProtectProc = "invisible";
     ProtectClock = true;
     PrivateTmp = true;
@@ -16,8 +16,8 @@
     RestrictNamespaces = true;
     RestrictRealtime = true;
     RestrictSUIDSGID = true;
-    RestrictAddressFamilies = [ 
-      "~AF_INET6"  
+    RestrictAddressFamilies = [
+      "~AF_INET6"
       "~AF_INET"
       "~AF_PACKET"
     ];
@@ -32,7 +32,7 @@
       "~@cpu-emulation"
     ];
     SystemCallArchitectures = "native";
-    CapabilityBoundingSet= [
+    CapabilityBoundingSet = [
       "~CAP_CHOWN"
       "~CAP_FSETID"
       "~CAP_SETFCAP"

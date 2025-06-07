@@ -8,14 +8,14 @@
     PrivateDevices = true;
     RestrictSUIDSGID = true;
     RestrictRealtime = true;
-    RestrictNamespaces = [ "~cgroup" ];
-    RestrictAddressFamilies = [ 
+    RestrictNamespaces = ["~cgroup"];
+    RestrictAddressFamilies = [
       "AF_UNIX"
       "AF_NETLINK"
-      "AF_INET6"  
+      "AF_INET6"
       "AF_INET"
     ];
-    CapabilityBoundingSet= [ 
+    CapabilityBoundingSet = [
       "~CAP_SYS_CHROOT"
       "~CAP_BPF"
       "~CAP_AUDIT_WRITE"
@@ -25,17 +25,17 @@
       "~CAP_SYS_NICE"
       "~CAP_SYS_RESOURCE"
       "~CAP_SYS_RAWIO"
-      "~CAP_SYS_TIME" 
-      "~CAP_SYS_PACCT" 
-      "~CAP_LINUX_IMMUTABLE" 
-      "~CAP_IPC_LOCK" 
-      "~CAP_WAKE_ALARM" 
-      "~CAP_SYS_TTY_CONFIG" 
-      "~CAP_SYS_BOOT" 
-      "~CAP_LEASE" 
-      "~CAP_BLOCK_SUSPEND" 
-      "~CAP_MAC_ADMIN" 
-      "~CAP_MAC_OVERRIDE" 
+      "~CAP_SYS_TIME"
+      "~CAP_SYS_PACCT"
+      "~CAP_LINUX_IMMUTABLE"
+      "~CAP_IPC_LOCK"
+      "~CAP_WAKE_ALARM"
+      "~CAP_SYS_TTY_CONFIG"
+      "~CAP_SYS_BOOT"
+      "~CAP_LEASE"
+      "~CAP_BLOCK_SUSPEND"
+      "~CAP_MAC_ADMIN"
+      "~CAP_MAC_OVERRIDE"
     ];
     SystemCallErrorNumber = "EPERM";
     SystemCallArchitectures = "native";

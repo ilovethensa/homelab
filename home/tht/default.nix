@@ -12,11 +12,11 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./sway.nix
-    #./firefox.nix
+    ./firefox.nix
     ./vscode.nix
     ./fish.nix
     ./mako.nix
-    ./chromium.nix
+    #./chromium.nix
     ./i3status.nix
   ];
 
@@ -53,10 +53,22 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [tor-browser zed-editor qbittorrent vesktop rustup radicle-node thunderbird nixd gimp3 nil btop pulsemixer
+  home.packages = with pkgs; [
+    tor-browser
+    zed-editor
+    qbittorrent
+    vesktop
+    rustup
+    radicle-node
+    thunderbird
+    nixd
+    gimp3
+    nil
+    btop
+    pulsemixer
     (pkgs.ollama.override {
-       acceleration = "rocm";
-     })
+      acceleration = "rocm";
+    })
   ];
 
   # Enable home-manager and git

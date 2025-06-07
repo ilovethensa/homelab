@@ -5,7 +5,7 @@
     ProtectHome = true;
     ProtectKernelLogs = true;
     ProtectControlGroups = true;
-    ProtectClock = true; 
+    ProtectClock = true;
     ProtectProc = "invisible";
     RestrictNamespaces = true;
     CapabilityBoundingSet = "~CAP_SYS_PTRACE ~CAP_SYS_PACCT";
