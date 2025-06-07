@@ -17,6 +17,7 @@
     ./fish.nix
     ./mako.nix
     ./chromium.nix
+    ./i3status.nix
   ];
 
   nixpkgs = {
@@ -52,7 +53,11 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  home.packages = with pkgs; [ungoogled-chromium tor-browser zed-editor qbittorrent vesktop rustup radicle-node thunderbird];
+  home.packages = with pkgs; [tor-browser zed-editor qbittorrent vesktop rustup radicle-node thunderbird nixd gimp3
+    (pkgs.ollama.override {
+       acceleration = "rocm";
+     })
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

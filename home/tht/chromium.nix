@@ -1,8 +1,8 @@
-{pkgs, config, ...}: {
+{pkgs, config, lib, ...}: {
   programs.chromium =
     let
       package = pkgs.ungoogled-chromium;
-      installExtensions = true; # TODO: Figure out how to load these links only once per extension
+      installExtensions = false; # TODO: Figure out how to load these links only once per extension
     in
     {
       inherit package;
@@ -27,60 +27,24 @@
       enable = true;
       extensions = [
         {
-          # BetterTTV
-          id = "ajopnjidmegmdimjlfnijceegpefgped";
-        }
-        {
-          # Copy All Urls
-          id = "djdmadneanknadilpjiknlnanaolmbfk";
-        }
-        {
-          # Disable YouTube Number Keyboard Shortcuts
-          id = "lajiknjoinemadijnpdnjjdmpmpigmge";
-        }
-        {
-          # Get RSS Feed URL
-          id = "kfghpdldaipanmkhfpdcjglncmilendn";
-        }
-        {
-          # Insecure Links Highlighter
-          id = "oejjgapcbhmlhkiijmadcofhmmfebmec";
+          # Bitwarden
+          id = "nngceckbapebfimnlniiiahkandclblb";
         }
         {
           # I still don't care about cookies
           id = "edibdbjcniadpccecjdfdjjppcpchdlm";
         }
         {
-          # Kagi Search
-          id = "cdglnehniifkbagbbombnjghhcihifij";
-        }
-        {
-          # KeePassXC-Browser
-          id = "oboonakemofpalcgghocfoadofidjkkk";
-        }
-        {
-          # Pinboard Plus
-          id = "mphdppdgoagghpmmhodmfajjlloijnbd";
-        }
-        {
-          # Privacy Badger
-          id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
-        }
-        {
-          # Read Aloud: A Text to Speech Voice Reader
-          id = "hdhinadidafjejdhmfkjgnolgimiaplp";
-        }
-        {
-          # Refined GitHub
-          id = "hlepfoohegkhhmjieoechaddaejaokhf";
-        }
-        {
           # uBlock Origin Lite
           id = "ddkjiahejlhfcafbddmgiahcphecmpfh";
         }
         {
-          # Wayback Machine
-          id = "fpnmgdkabkmnadcjpehmlllkndpkmiak";
+          # Onetab
+          id = "chphlpgkkbolifaimnlloiipkdnihall";
+        }
+        {
+          # Dark reader
+          id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";
         }
       ];
     };

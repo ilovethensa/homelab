@@ -4,22 +4,22 @@
     sha256 = "0vaywlhyv9gp31pn37n9iz3cgzi6r5bmwkh6f07bwmpviylfpzzy";
     name = "Linux_Nixos_operating_system_minimalism-2175185.jpg";
   };
-  rofi-sound = pkgs.writeShellScript "rofi-sound" ''
+  rofi-sound = pkgs.writeShellScriptBin "rofi-sound" ''
       # Do not change these lines
       sinks=$(${pkgs.pulseaudio}/bin/pactl list sinks | grep "Name:" | awk '{print $2}')
-      names=$(pactl list sinks | grep "Description:" | cut -d ':' -f 2- | sed 's/^[[:space:]]*//' | sed 's/[^a-zA-Z0-9 ].*//')
+      names=$(${pkgs.pulseaudio}/bin/pactl list sinks | grep "Description:" | cut -d ':' -f 2- | sed 's/^[[:space:]]*//' | sed 's/[^a-zA-Z0-9 ].*//')
 
       # Pipe the names to Rofi for selection
-      selected_name=$(echo -e "$names" | rofi -dmenu -p "Select a sink:")
+      selected_name=$(echo -e "$names" | ${pkgs.rofi}/bin/rofi -dmenu -p "Select a sink:")
 
       # You can now use the 'selected_name' variable if you want to do something with the selection later
       # For this request, we are not doing anything else with it, just letting the user select.
 
-      sink_name=$(pactl list sinks | grep -B 1 "\$\{selected_name}" | head -n 1 | awk '{print $2}')
+      sink_name=$(${pkgs.pulseaudio}/bin/pactl list sinks | grep -B 1 "$selected_name" | head -n 1 | awk '{print $2}')
 
-      pactl set-default-sink $sink_name
+      ${pkgs.pulseaudio}/bin/pactl set-default-sink $sink_name
 
-      notify-send "Switched output to: \$\{selected_name}"
+      ${pkgs.libnotify}/bin/notify-send "Switched output to: $selected_name"
 
   '';
 in {
@@ -49,7 +49,7 @@ in {
 
         "${modifier}+Return" = "exec ${pkgs.foot}/bin/footclient";
         "${modifier}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot savecopy area";
-        "${modifier}+b" = "exec ${rofi-sound}";
+        "${modifier}+b" = "exec ${rofi-sound}/bin/rofi-sound";
 
         "${modifier}+Shift+T" = "exec ${pkgs.obs-cmd}/bin/obs-cmd  replay toggle";
         "${modifier}+Shift+G" = "exec ${pkgs.obs-cmd}/bin/obs-cmd  replay save";
