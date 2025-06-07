@@ -1,6 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{pkgs, ...}: {
+{ inputs,
+  outputs,
+  pkgs,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -12,7 +16,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
     ./sway.nix
-    ./firefox.nix
+    #./firefox.nix
     ./vscode.nix
     ./fish.nix
     ./mako.nix
@@ -24,9 +28,9 @@
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
-      #outputs.overlays.additions
-      #outputs.overlays.modifications
-      #outputs.overlays.unstable-packages
+      outputs.overlays.additions
+      outputs.overlays.modifications
+      outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -66,10 +70,19 @@
     nil
     btop
     pulsemixer
-    (pkgs.ollama.override {
-      acceleration = "rocm";
-    })
+    thorium
   ];
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "thorium-browser.desktop";
+      "x-scheme-handler/http" = "thorium-browser.desktop";
+      "x-scheme-handler/https" = "thorium-browser.desktop";
+      "x-scheme-handler/about" = "thorium-browser.desktop";
+      "x-scheme-handler/unknown" = "thorium-browser.desktop";
+    };
+  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -87,6 +100,31 @@
       obs-pipewire-audio-capture
     ];
   };
+
+  gtk = {
+    #enable = true;
+
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
+    };
+
+    cursorTheme = {
+      package = pkgs.vimix-cursors;
+      name = "Vimix-cursors";
+    };
+    iconTheme.name = "MoreWaita";
+  };
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt6;
+    };
+  };
+
+  home.file.".local/share/icons/MoreWaita/".source = inputs.morewaita;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

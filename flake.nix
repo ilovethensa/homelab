@@ -14,6 +14,11 @@
     nixarr.url = "github:rasmus-kirk/nixarr";
 
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+
+    morewaita = {
+      url = "github:somepaulo/MoreWaita";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -46,7 +51,7 @@
       forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     # Your custom packages and modifications, exported as overlays
-    #overlays = import ./nix/overlays { inherit inputs; };
+    overlays = import ./nix/overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
     nixosModules = import ./modules/nixos;
