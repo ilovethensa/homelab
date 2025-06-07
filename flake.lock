@@ -6,11 +6,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1748730131,
-        "narHash": "sha256-QHKZlwzw80hoJkNGXQePIg4u109lqcodALkont2WJAc=",
+        "lastModified": 1749143092,
+        "narHash": "sha256-IrVT37SUU8/B3X53rwEzDrx3djGLIfa8tmsyqVJxpR4=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "aa7bfc2ec4763b57386fcd50242c390a596b9bb0",
+        "rev": "d62d10f250ca6a37cbbe05a35a0e1e7ae3b4b5c2",
         "type": "gitlab"
       },
       "original": {
@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1748830238,
-        "narHash": "sha256-EB+LzYHK0D5aqxZiYoPeoZoOzSAs8eqBDxm3R+6wMKU=",
+        "lastModified": 1749243446,
+        "narHash": "sha256-P1gumhZN5N9q+39ndePHYrtwOwY1cGx+VoXGl+vTm7A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c7fdb7e90bff1a51b79c1eed458fb39e6649a82a",
+        "rev": "2d7d65f65b61fdfce23278e59ca266ddd0ef0a36",
         "type": "github"
       },
       "original": {
@@ -62,11 +62,11 @@
         "website-builder": "website-builder"
       },
       "locked": {
-        "lastModified": 1748417924,
-        "narHash": "sha256-b2zlPt5XA6dj+X/8W5EbBqYf/st5AMo9bvWSziDfPhs=",
+        "lastModified": 1749021695,
+        "narHash": "sha256-vuQ/Bw4xwMqKqhbPp90Y1XyC3+mdh37nN3P+gAx3U2Y=",
         "owner": "rasmus-kirk",
         "repo": "nixarr",
-        "rev": "d75ce74ffaaf70e9b42eff142dd015cac530942f",
+        "rev": "308818029caaefc969bbdb70afa9528a68635d45",
         "type": "github"
       },
       "original": {
@@ -109,11 +109,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1741402956,
-        "narHash": "sha256-y2hByvBM03s9T2fpeLjW6iprbxnhV9mJMmSwCHc41ZQ=",
+        "lastModified": 1748662220,
+        "narHash": "sha256-7gGa49iB9nCnFk4h/g9zwjlQAyjtpgcFkODjcOQS0Es=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ed0b1881565c1ffef490c10d663d4f542031dad3",
+        "rev": "59138c7667b7970d205d6a05a8bfa2d78caa3643",
         "type": "github"
       },
       "original": {
@@ -125,11 +125,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1748693115,
-        "narHash": "sha256-StSrWhklmDuXT93yc3GrTlb0cKSS0agTAxMGjLKAsY8=",
+        "lastModified": 1749143949,
+        "narHash": "sha256-QuUtALJpVrPnPeozlUG/y+oIMSLdptHxb3GK6cpSVhA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "910796cabe436259a29a72e8d3f5e180fc6dfacc",
+        "rev": "d3d2d80a2191a73d1e86456a751b83aa13085d7d",
         "type": "github"
       },
       "original": {
@@ -151,11 +151,11 @@
     },
     "vpnconfinement": {
       "locked": {
-        "lastModified": 1740921534,
-        "narHash": "sha256-orXe3m04DLTW3I19VVanClzpqeq7adnDTqKAD7aPbA8=",
+        "lastModified": 1743810720,
+        "narHash": "sha256-kbv/W4gizUSa6qH2rUQdgPj9AJaeN9k2XSWUYqj7IMU=",
         "owner": "Maroka-chan",
         "repo": "VPN-Confinement",
-        "rev": "5eb7dc3e901f4dbb085eb37f5785473a9ae78bc4",
+        "rev": "74ae51e6d18b972ecc918ab43e8bde60c21a65d8",
         "type": "github"
       },
       "original": {
@@ -172,11 +172,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1741594814,
-        "narHash": "sha256-YPAIywsWZVhQuy/cPJLi3PiWgoWDrqvQCBytXeSQYCk=",
+        "lastModified": 1748552643,
+        "narHash": "sha256-UI3dlA/6WOitW3ejPhwYvB/yxrVWpdTmh96Hl8CEUis=",
         "owner": "rasmus-kirk",
         "repo": "website-builder",
-        "rev": "e0239195b33103a4923011d8e96ef39a3397631b",
+        "rev": "f399b9c89d45a0150ce6230c6df23f62f9c3cf89",
         "type": "github"
       },
       "original": {
