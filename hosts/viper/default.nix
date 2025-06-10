@@ -22,7 +22,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    #../../nix/configs/hardened
+    ../../nix/configs/hardened
     ../../nix/profiles/desktop.nix
     ../../nix/configs/persist.nix
     ../../nix/configs/gaming.nix

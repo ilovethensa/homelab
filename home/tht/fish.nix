@@ -42,6 +42,14 @@ in {
     deadnix
     just
     wl-clipboard-rs
+    discordo
+    yazi
+    gurk-rs
+    httpie
+    hexyl
+    btop
+    pulsemixer
+    moreutils
   ];
   programs = {
     fish = {
@@ -50,7 +58,7 @@ in {
         set fish_greeting # Disable greeting
         ${pkgs.starship}/bin/starship init fish | source
         ${pkgs.nitch}/bin/nitch
-        export SUDO_PROMPT='[sudo] %p 🔒: '
+        # export SUDO_PROMPT='[sudo] %p 🔒: '
       '';
       shellAliases = {
         ls = "${pkgs.eza}/bin/eza -la";
@@ -71,6 +79,9 @@ in {
         shutdown = "systemctl poweroff";
         gc = "git add . && git commit -m";
         gp = "git push";
+        ps = "${pkgs.procs}/bin/procs";
+        help = "${pkgs.tealdeer}/bin/tldr";
+        imgur = "${pkgs.imgurbash2}/bin/imgurbash2";
       };
       plugins = [
         # Enable a plugin (here grc for colorized command output) from nixpkgs

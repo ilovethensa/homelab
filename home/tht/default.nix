@@ -68,8 +68,6 @@
     nixd
     gimp3
     nil
-    btop
-    pulsemixer
     thorium
   ];
 

@@ -85,6 +85,7 @@ in {
         "${modifier}+Shift+Down" = "move down";
         "${modifier}+Shift+Up" = "move up";
         "${modifier}+Shift+Right" = "move right";
+        "${modifier}+Shift+Space" = "floating toggle";
       };
       startup = [
         {command = "${pkgs.gammastep}/bin/gammastep -o -O 2000";}
@@ -170,7 +171,11 @@ in {
       bindgesture swipe:left workspace next
       for_window [shell="xwayland"] title_format "[XWayland] %title"
       for_window [title="Picture-in-picture"] floating enable, sticky toggle # Fix Chrome PIP
-      for_window [app_id="firefox" title="Picture-in-Picture"] floating enable, sticky enable, border none
+      for_window [title="Picture in picture"] floating enable, sticky enable, border none
+      for_window [class="Thorium-browser" instance="crx_nngceckbapebfimnlniiiahkandclblb"] floating enable
+
+      assign [instance="thorium-browser"] 3
+      assign [app_id="vesktop"] 4
     '';
   };
 }
